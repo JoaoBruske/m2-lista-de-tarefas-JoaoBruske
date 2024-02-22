@@ -11,21 +11,21 @@ const tasks = [
   {title: "Assistir a um documentário interessante", type: "Normal"},
 ];
 
-function renderElements(tarefas) {
+function renderElements(tasks) {
   const lista = document.querySelector(".tasks__list");
 
   while (lista.hasChildNodes()) {
     lista.removeChild(lista.firstChild);
   }
 
-  for (let i = 0; i < tarefas.length; i++) {
-    const tarefa = tarefas[i];
-    let item = createTaskItem(tarefa.title, tarefa.type);
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    let item = createTaskItem(task);
     lista.appendChild(item);
   }
 }
 
-function createTaskItem(title, type) {
+function createTaskItem(task) {
   const item = document.createElement("li");
   const container = document.createElement("task-info__container");
   const tipo = document.createElement("span");
@@ -36,15 +36,15 @@ function createTaskItem(title, type) {
   item.classList.add("task__item");
   tipo.classList.add("task-type");
 
-  if (type === "Urgente") {
+  if (task.type === "Urgente") {
     tipo.classList.add("span-urgent");
-  } else if (type === "Importante") {
+  } else if (task.type === "Importante") {
     tipo.classList.add("span-important");
-  } else if (type === "Normal") {
+  } else if (task.type === "Normal") {
     tipo.classList.add("span-normal");
   }
 
-  titulo.innerText = title;
+  titulo.innerText = task.title;
   botaoExcluir.classList.add("task__button--remove-task");
   botaoExcluir.addEventListener("click", removerTarefa);
 
