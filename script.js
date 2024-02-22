@@ -10,3 +10,78 @@ const tasks = [
   {title: "Pagar a conta de energia", type: "Urgente"},
   {title: "Assistir a um documentário interessante", type: "Normal"},
 ];
+
+function renderElements(tarefas) {
+  const lista = document.querySelector(".tasks__list");
+
+  while (lista.hasChildNodes()) {
+    lista.removeChild(lista.firstChild);
+  }
+
+  for (let i = 0; i < tarefas.length; i++) {
+    const tarefa = tarefas[i];
+    let item = createTaskItem(tarefa.title, tarefa.type);
+    lista.appendChild(item);
+  }
+}
+
+function createTaskItem(title, type) {
+  const item = document.createElement("li");
+  const container = document.createElement("task-info__container");
+  const tipo = document.createElement("span");
+  const titulo = document.createElement("p");
+  const botaoExcluir = document.createElement("button");
+
+  container.classList.add("task-info__container");
+  item.classList.add("task__item");
+  tipo.classList.add("task-type");
+
+  if (type === "Urgente") {
+    tipo.classList.add("span-urgent");
+  } else if (type === "Importante") {
+    tipo.classList.add("span-important");
+  } else if (type === "Normal") {
+    tipo.classList.add("span-normal");
+  }
+
+  titulo.innerText = title;
+  botaoExcluir.classList.add("task__button--remove-task");
+  botaoExcluir.addEventListener("click", removerTarefa);
+
+  item.appendChild(container);
+  container.appendChild(tipo);
+  container.appendChild(titulo);
+  item.appendChild(botaoExcluir);
+
+  return item;
+}
+
+renderElements(tasks);
+
+function adicionarTarefa() {
+  const inputTarefa = document.querySelector("#input_title");
+  const selTipo = document.querySelector(".form__input--priority");
+
+  let novaTarefa = {
+    title: inputTarefa.value,
+    type: selTipo.value[0].toUpperCase() + selTipo.value.substring(1),
+  };
+  tasks.push(novaTarefa);
+  renderElements(tasks);
+}
+
+function removerTarefa(event) {
+  let titulo = event.target.previousElementSibling.children[1].innerText;
+  for (let i = 0; i < tasks.length; i++) {
+    if (titulo === tasks[i].title) {
+      tasks.splice(i, 1);
+    }
+  }
+  renderElements(tasks);
+}
+
+const formAdicionar = document.querySelector(".form__container");
+formAdicionar.addEventListener("submit", adicionarTarefa);
+formAdicionar.addEventListener("submit", function (event) {
+  event.preventDefault();
+});

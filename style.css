@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+header {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+  background-color: white;
+}
+.header__content {
+  height: 100%;
+  width: 65vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  display: inline-block;
+  color: #3b5bdb;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+body {
+  background-color: #e2e2e2;
+}
+.form__container {
+  height: 34vh;
+  width: 65vw;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
+  margin-bottom: 35px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.form__input-container {
+  display: flex;
+  justify-content: space-between;
+}
+.tasks__container {
+  width: 65vw;
+  background-color: white;
+  margin: auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 50px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+.input__box {
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  color: #757575;
+  font-size: 1rem;
+}
+.form__input--text {
+  width: 55%;
+}
+.form__input--priority {
+  width: 35%;
+  padding-top: 0.5px;
+  padding-bottom: 1px;
+  margin-left: 43px;
+  box-sizing: content-box;
+}
+.form__button--add-task {
+  height: 27%;
+  width: 100%;
+  background-color: #3b5bdb;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  color: white;
+  margin: auto;
+  font-size: 1rem;
+}
+.header__input--search {
+  height: 55%;
+  width: 60%;
+  margin-bottom: 0;
+}
+ul {
+  height: 80%;
+  width: 100%;
+}
+.task__item {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f1f3f5;
+  border-radius: 5px;
+}
+.task-info__container {
+  font-size: 0;
+}
+.task-type {
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 20px;
+}
+.span-urgent {
+  background-color: #e40404;
+}
+.span-important {
+  background-color: #f3a703;
+}
+.span-normal {
+  background-color: #028302;
+}
+p {
+  display: inline-block;
+  font-size: 1rem;
+}
+.task__button--remove-task {
+  height: 16px;
+  width: 15px;
+  margin: 0 20px;
+  background-image: url("./assets/trash-icon.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+}
